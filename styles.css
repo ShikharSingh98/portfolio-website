@@ -17,6 +17,19 @@
 }
 
 :root {
+  /* Grey color shades */
+  --dark-grey-color: #0f172a;
+  --grey-color: #94a3b8;
+  --light-grey-color: #f1f5f9;
+
+  /* Primary color shades */
+  --dark-primary-color: #f76707;
+  --primary-color: #ff922b;
+  --light-primary-color: #ffa94d;
+
+  /* Main White */
+  --white-color: #fff;
+
   /* box shadow */
   --light-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --dark-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -32,6 +45,7 @@ html {
 
 body {
   font-family: 'Rubik', sans-serif;
+  color: var(--dark-grey-color);
 }
 
 a {
@@ -56,4 +70,81 @@ button {
   outline: none;
   border: none;
   cursor: pointer;
+}
+
+/* Header */
+
+.header {
+  max-width: 135rem;
+  margin: 0 auto;
+  padding: 2.4rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.header-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-icon {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.navbar-toggle-button {
+  font-size: 2rem;
+  transition: var(--transition);
+}
+
+.navbar-toggle-button:hover {
+  transform: scale(1.1);
+}
+
+.navbar {
+  height: 0;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.navbar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.navbar-link:link,
+.navbar-link:visited {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--dark-grey-color);
+}
+
+.navbar-link:hover,
+.navbar-link:active {
+  color: var(--primary-color);
+}
+
+@media screen and (min-width: 768px) {
+  .navbar-toggle-button {
+    display: none;
+  }
+
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar {
+    height: auto !important;
+  }
+
+  .navbar-links {
+    flex-direction: row;
+    gap: 3.2rem;
+  }
 }
