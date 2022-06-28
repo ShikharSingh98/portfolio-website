@@ -18,14 +18,16 @@
 
 :root {
   /* Grey color shades */
-  --dark-grey-color: #0f172a;
-  --grey-color: #94a3b8;
-  --light-grey-color: #f1f5f9;
+  --dark-grey-color: #495057;
+  --grey-color: #adb5bd;
+  --light-grey-color: #e9ecef;
 
-  /* Primary color shades */
-  --dark-primary-color: #f76707;
-  --primary-color: #ff922b;
-  --light-primary-color: #ffa94d;
+  /* Colors */
+  --primary-color: #e63946;
+  --secondary-color: #1d3557;
+
+  /* Black color shade */
+  --black-color: #333;
 
   /* Main White */
   --white-color: #fff;
@@ -45,7 +47,7 @@ html {
 
 body {
   font-family: 'Rubik', sans-serif;
-  color: var(--dark-grey-color);
+  color: var(--secondary-color);
 }
 
 a {
@@ -72,27 +74,44 @@ button {
   cursor: pointer;
 }
 
+.heading-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.heading-primary {
+  font-size: 4.4rem;
+}
+
+.heading-secondary {
+  font-size: 2.4rem;
+}
+
+.text-color-primary {
+  color: var(--primary-color);
+}
+
 /* Header */
 
 .header {
   max-width: 135rem;
   margin: 0 auto;
-  padding: 2.4rem 1.2rem;
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  padding: 0 0.8rem;
 }
 
 .header-center {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 8rem;
 }
 
 .header-icon {
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: 500;
-  color: var(--primary-color);
 }
 
 .navbar-toggle-button {
@@ -105,6 +124,7 @@ button {
 }
 
 .navbar {
+  margin-top: 1.6rem;
   height: 0;
   overflow: hidden;
   transition: var(--transition);
@@ -113,14 +133,14 @@ button {
 .navbar-links {
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  gap: 2.4rem;
 }
 
 .navbar-link:link,
 .navbar-link:visited {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 500;
-  color: var(--dark-grey-color);
+  color: var(--secondary-color);
 }
 
 .navbar-link:hover,
@@ -147,4 +167,158 @@ button {
     flex-direction: row;
     gap: 3.2rem;
   }
+}
+
+/* Main */
+.main {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6.4rem;
+}
+
+/* Banner */
+.banner {
+  height: calc(100vh - 8rem);
+  display: grid;
+  align-items: center;
+}
+
+.banner h2 {
+  font-size: 4.8rem;
+  animation: moveInFromLeft 1.5s ease-in-out;
+}
+
+.banner h1 {
+  font-size: 6.4rem;
+  color: var(--primary-color);
+  animation: moveInFromRight 1.5s ease-in-out;
+}
+
+.banner span {
+  display: block;
+  font-size: 1.8rem;
+  color: var(--dark-grey-color);
+  animation: moveInFromLeft 1.5s ease-in-out;
+}
+
+.social-links {
+  margin-top: 2.4rem;
+  display: flex;
+  gap: 1.6rem;
+  animation: moveInFromRight 1.5s linear;
+}
+
+.social-link:link,
+.social-link:visited {
+  font-size: 1.6rem;
+  color: var(--dark-grey-color);
+  transition: var(--transition);
+}
+
+.social-link:hover,
+.social-link:active {
+  color: var(--primary-color);
+}
+
+.banner-img {
+  display: none;
+  animation: fadeIn 1.5s linear;
+}
+
+@keyframes moveInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: translateX(15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes moveInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: translateX(-15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .banner {
+    grid-template-columns: 1fr 30rem;
+  }
+
+  .banner-img {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .banner {
+    grid-template-columns: 1fr 40rem;
+  }
+}
+
+/* Skills Section */
+
+.skills-container {
+  margin: 8rem 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.skill-items {
+  margin: 8rem 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.skill-items li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--dark-grey-color);
+}
+
+.skill {
+  font-size: 5.2rem;
+}
+
+.skill-name {
+  font-size: 1.4rem;
+  font-weight: 500;
 }
